@@ -44,21 +44,6 @@ plugin.tx_wecflashplayer_pi1 {
   bgimage = TEXT
   bgimage.value =
 
-  flashPath = TEXT
-  flashPath.value = {$plugin.tx_wecflashplayer_pi1.flashPath}
-  
-  width = TEXT
-  width.value  = {$plugin.tx_wecflashplayer_pi1.width}
-  
-  height = TEXT
-  height.value = {$plugin.tx_wecflashplayer_pi1.height}
-  
-  textcolor = TEXT
-  textcolor.value  = {$plugin.tx_wecflashplayer_pi1.textcolor}
-  
-  bgcolor = TEXT
-  bgcolor.value = {$plugin.tx_wecflashplayer_pi1.bgcolor}
-
   videolow = TEXT
   videolow.value =
 
@@ -89,4 +74,10 @@ plugin.tx_wecflashplayer_pi2 {
   
   audiobase = TEXT
   audiobase.value = uploads/tx_wecflashplayer/
+
+  audiofile = TEXT
+  audiofile.value =
+
+  autoplay = TEXT
+  autoplay.value =
 }
