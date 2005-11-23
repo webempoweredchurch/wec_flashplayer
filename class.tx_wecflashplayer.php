@@ -30,7 +30,7 @@
 /** 
  * Top level class for the 'wec_flashplayer' extension.
  *
- * @author		Web Empowered Church Team <flashflashplayer@webempoweredchurch.org>
+ * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  */
 
 
@@ -40,7 +40,7 @@ require_once(PATH_tslib."class.tslib_pibase.php");
  * Top level class for the 'wec_flashplayer' extension. Subclasses
  * in pi1 and pi2 are shells that call all functions in parent class.
  *
- * @author		Web Empowered Church Team <flashflashplayer@webempoweredchurch.org>
+ * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  * @package		TYPO3
  * @subpackage	tx_wecflashplayer
  */
@@ -74,8 +74,6 @@ class tx_wecflashplayer extends tslib_pibase {
 			}
 		}
 
-		debug($flashConf);
-
 		$width = $flashConf['width'];
 		$height = $flashConf['height'];
 		$bgcolor = $flashConf['bgcolor'];
@@ -87,18 +85,19 @@ class tx_wecflashplayer extends tslib_pibase {
 		unset($flashConf['bgcolor']);
 		unset($flashConf['flashPath']);
 		
-		
-		foreach($piFlexForm['data'] as $sheet => $data) {
-			foreach ($data as $lang => $value) {
-				foreach ($value as $key => $val) {
-					$val = $this->pi_getFFvalue($piFlexForm, $key, $sheet);
-					/* If value exists in Flexform, overwrite existing Typoscript value or create new array entry */
-					if ($val != null) {
-						$flashConf[$key] = $val;
+		if($piFlexForm['data']) {
+			foreach($piFlexForm['data'] as $sheet => $data) {
+				foreach ($data as $lang => $value) {
+					foreach ($value as $key => $val) {
+						$val = $this->pi_getFFvalue($piFlexForm, $key, $sheet);
+						/* If value exists in Flexform, overwrite existing Typoscript value or create new array entry */
+						if ($val != null) {
+							$flashConf[$key] = $val;
 							
-						/* If bandwidth image comes from Flexform, set bwbase to uploads folder */
-						if ($key == "bwbase") {
-							$flashConf['bwbase'] = "uploads/tx_wecflashplayer/";
+							/* If bandwidth image comes from Flexform, set bwbase to uploads folder */
+							if ($key == "bwbase") {
+								$flashConf['bwbase'] = "uploads/tx_wecflashplayer/";
+							}
 						}
 					}
 				}
@@ -106,7 +105,7 @@ class tx_wecflashplayer extends tslib_pibase {
 		}
 		
 		$flashVars = $this->implode_assoc("=", "&", $flashConf)."&".
-						 "baseurl=".t3lib_div::getIndpEnv('TYPO3_SITE_URL')."&lastLoaded=true";
+						 "baseurl=".t3lib_div::getIndpEnv('TYPO3_SITE_URL')."&lastloaded=true";
 		
 		
 		return $this->pi_wrapInBaseClass($this->outputHTML($flashPath, $width, $height, $bgcolor, $flashVars));

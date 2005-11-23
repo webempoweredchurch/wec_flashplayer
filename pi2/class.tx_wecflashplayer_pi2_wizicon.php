@@ -28,14 +28,14 @@
 /** 
  * Class that adds the wizard icon.
  * 
- * @author	Jeff Segars <jeff@webempoweredchurch.org>
+ * @author	Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  */
 
 
 /**
  * Class that adds the wizard icon.
  * 
- * @author	Jeff Segars <jeff@webempoweredchurch.org>
+ * @author	Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  * @package TYPO3
  * @subpackage tx_wecflashplayer
  */

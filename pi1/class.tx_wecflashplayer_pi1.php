@@ -29,7 +29,7 @@
 /** 
  * Video player class for the 'wec_flashplayer' extension.
  * 
- * @author		Jeff Segars <jeff@webempoweredchurch.org>
+ * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  */
 
 require_once(PATH_site.'typo3conf/ext/wec_flashplayer/class.tx_wecflashplayer.php');
@@ -38,7 +38,7 @@ require_once(PATH_site.'typo3conf/ext/wec_flashplayer/class.tx_wecflashplayer.ph
  * Video player class for the 'wec_flashplayer' extension.
  * Class is a simple shell that extends parent class and calls all functions from it.
  *
- * @author		Jeff Segars <jeff@webempoweredchurch.org>
+ * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  * @package		TYPO3
  * @subpackage	tx_wecflashplayer
  */

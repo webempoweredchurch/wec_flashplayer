@@ -30,7 +30,7 @@
 /** 
  * Audio presentation class for the 'wec_flashplayer' extension.
  * 
- * @author		Web Empowered Church Team <flashflashplayer@webempoweredchurch.org>
+ * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  */
 
 require_once(PATH_site.'typo3conf/ext/wec_flashplayer/class.tx_wecflashplayer.php');
@@ -39,7 +39,7 @@ require_once(PATH_site.'typo3conf/ext/wec_flashplayer/class.tx_wecflashplayer.ph
  * Audio presentation class for the 'wec_flashplayer' extension.
  * Class is a simple shell that extends parent class and calls all functions from it.
  *
- * @author		Web Empowered Church Team <flashflashplayer@webempoweredchurch.org>
+ * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  * @package		TYPO3
  * @subpackage	tx_wecflashplayer
  */
