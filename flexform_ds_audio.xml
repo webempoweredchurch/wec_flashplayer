@@ -19,12 +19,31 @@
 								<max_size>10000</max_size>
 								<show_thumbs>1</show_thumbs>
 								<size>3</size>
-								<!-- <min_items>1</min_items> -->
 								<max_items>1</max_items>
 							</config>
 						</TCEforms>
 					</audiofile>
-
+					
+					<autoplay>
+						<TCEforms>
+							<label>LLL:EXT:wec_flashplayer/locallang_db.php:tt_content.pi_flexform.autoplay</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</autoplay>
+					
+					<!--
+					<loop>
+						<TCEforms>
+							<label>LLL:EXT:wec_flashplayer/locallang_db.php:tt_content.pi_flexform.loop</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</loop>
+					-->
+					
 				</el>
 			</ROOT>
 		</classConfig>

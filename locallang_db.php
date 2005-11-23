@@ -33,6 +33,9 @@ $LOCAL_LANG = Array (
 		"tt_content.pi_flexform.videolowEC" => "Encode Bitrate for Low Bandwidth Video",
 		"tt_content.pi_flexform.videohighEC" => "Encode Bitrate for High Bandwidth Video",
 		"tt_content.pi_flexform.audioEC" => "Encode Bitrate for Audio",
+		
+		"tt_content.pi_flexform.autoplay" => "Autoplay?",
+		"tt_content.pi_flexform.loop" => "Loop playback?",
 	),
 );
 ?>
