@@ -10,7 +10,7 @@
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = Array (
-	'title' => 'Flash Player',
+	'title' => 'WEC Flash Player',
 	'description' => 'Flash-based media player for MP3 audio or FLV video files.',
 	'category' => 'plugin',
 	'shy' => 0,
