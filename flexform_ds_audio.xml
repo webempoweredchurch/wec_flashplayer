@@ -20,6 +20,7 @@
 								<show_thumbs>1</show_thumbs>
 								<size>3</size>
 								<max_items>1</max_items>
+								<eval>required</eval>
 							</config>
 						</TCEforms>
 					</audiofile>
