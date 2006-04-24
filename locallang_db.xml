@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>language labels for wec_flashplayer</description>
+		<type>module</type>
+		<csh_table></csh_table>
+		<fileId>EXT:wec_flashplayer/locallang.xml</fileId>
+		<labelContext type="array">
+			<label index="pi1_title"></label>
+			<label index="pi1_plus_wiz_description"></label>
+			<label index="pi2_title"></label>
+			<label index="pi2_plus_wiz_description"></label>
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.list_type_pi1">Flash Player - Video</label>
+			<label index="tt_content.list_type_pi2">Flash Player - Audio</label>
+			<label index="tt_content.pi1_plus_wiz_description">Flash-based media player for FLV video.</label>
+			<label index="tt_content.pi2_plus_wiz_description">Flash-based media player for MP3 audio.</label>
+			<label index="tt_content.pi_flexform.video_sheet">Video Settings</label>
+			<label index="tt_content.pi_flexform.audio_sheet">Audio Settings</label>
+			<label index="tt_content.pi_flexform.classtitle">Class/Video Title</label>
+			<label index="tt_content.pi_flexform.intromessage">Intro Message</label>
+			<label index="tt_content.pi_flexform.textcolor">Text color</label>
+			<label index="tt_content.pi_flexform.videobase">Base URL for Video</label>
+			<label index="tt_content.pi_flexform.imagesbase">Base URL for Images</label>
+			<label index="tt_content.pi_flexform.bwbase">Base URL for Bandwidth Checker Image</label>
+			<label index="tt_content.pi_flexform.bwimage">Bandwidth Checker Image</label>
+			<label index="tt_content.pi_flexform.bgbase">Base URL for Background Image</label>
+			<label index="tt_content.pi_flexform.bgimage">Background Image</label>
+			<label index="tt_content.pi_flexform.videolow">Low Bandwidth Video</label>
+			<label index="tt_content.pi_flexform.videohigh">High Bandwidth Video</label>
+			<label index="tt_content.pi_flexform.audiofile">Audio File</label>
+			<label index="tt_content.pi_flexform.radioLabelLow">Low Bandwidth Button Label</label>
+			<label index="tt_content.pi_flexform.radioLabelHigh">High Bandwidth Button Label</label>
+			<label index="tt_content.pi_flexform.videolowEC">Encode Bitrate for Low Bandwidth Video</label>
+			<label index="tt_content.pi_flexform.videohighEC">Encode Bitrate for High Bandwidth Video</label>
+			<label index="tt_content.pi_flexform.audioEC">Encode Bitrate for Audio</label>
+			<label index="tt_content.pi_flexform.autoplay">Autoplay?</label>
+			<label index="tt_content.pi_flexform.loop">Loop playback?</label>
+		</languageKey>
+		<languageKey index="nl" type="array">
+			<label index="tt_content.list_type_pi1">Flash Player - Video</label>
+			<label index="tt_content.list_type_pi2">Flash Player - Audio</label>
+			<label index="tt_content.pi1_plus_wiz_description">Flash-based media speler voor FLV video.</label>
+			<label index="tt_content.pi2_plus_wiz_description">Flash-based media speler voor MP3 audio.</label>
+			<label index="tt_content.pi_flexform.video_sheet">Video instellingen</label>
+			<label index="tt_content.pi_flexform.audio_sheet">Audio instellingen</label>
+			<label index="tt_content.pi_flexform.classtitle">Klasse/Video titel</label>
+			<label index="tt_content.pi_flexform.intromessage">Intro bericht</label>
+			<label index="tt_content.pi_flexform.textcolor">Tekst kleur</label>
+			<label index="tt_content.pi_flexform.videobase">Base URL voor video</label>
+			<label index="tt_content.pi_flexform.imagesbase">Base URL voor afbeeldingen</label>
+			<label index="tt_content.pi_flexform.bwbase">Base URL voor de bandbreedte checker afbeelding</label>
+			<label index="tt_content.pi_flexform.bwimage">Bandbreedte checker afbeelding</label>
+			<label index="tt_content.pi_flexform.bgbase">Base URL voor de achtergrond afbeelding</label>
+			<label index="tt_content.pi_flexform.bgimage">Achtergrond afbeelding</label>
+			<label index="tt_content.pi_flexform.videolow">Smalband video</label>
+			<label index="tt_content.pi_flexform.videohigh">Breedband video</label>
+			<label index="tt_content.pi_flexform.audiofile">Audio bestand</label>
+			<label index="tt_content.pi_flexform.radioLabelLow">Smalband knopopschrift</label>
+			<label index="tt_content.pi_flexform.radioLabelHigh">Breedband knopopschrift</label>
+			<label index="tt_content.pi_flexform.videolowEC">Encode bitrate voor smalband video</label>
+			<label index="tt_content.pi_flexform.videohighEC">Encode bitrate voor breedband video</label>
+			<label index="tt_content.pi_flexform.audioEC">Encode bitrate voor audio</label>
+			<label index="tt_content.pi_flexform.autoplay">Autoplay?</label>
+			<label index="tt_content.pi_flexform.loop">Herhaald afspelen?</label>
+		</languageKey>
+	</data>
+</T3locallang>

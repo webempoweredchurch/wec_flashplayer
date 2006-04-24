@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>language labels for wec_flashplayer</description>
+		<type>module</type>
+		<csh_table></csh_table>
+		<fileId>EXT:wec_flashplayer/locallang.xml</fileId>
+		<labelContext type="array">
+			<label index="pi1_title"></label>
+			<label index="pi1_plus_wiz_description"></label>
+			<label index="pi2_title"></label>
+			<label index="pi2_plus_wiz_description"></label>
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="pi1_title">Flash Player - Video</label>
+			<label index="pi1_plus_wiz_description">Flash-based media player for FLV video.</label>
+			<label index="pi2_title">Flash Player - Audio</label>
+			<label index="pi2_plus_wiz_description">Flash-based media player for MP3 video.</label>
+		</languageKey>
+		<languageKey index="nl" type="array">
+			<label index="pi1_title">Flash speler - video</label>
+			<label index="pi1_plus_wiz_description">Flash-based mediaspeler voor FLV video.</label>
+			<label index="pi2_title">Flash speler - audio</label>
+			<label index="pi2_plus_wiz_description">Flash-based mediaspeler voor MP3 audio.</label>
+		</languageKey>
+	</data>
+</T3locallang>

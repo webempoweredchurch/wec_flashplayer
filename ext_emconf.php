@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext: "wec_flashplayer"
 # 
-# Auto generated 06-12-2005 13:29
+# Auto generated 06-12-2005 13:34
 # 
 # Manual updates:
 # Only the data in the array - anything else is removed by next write
