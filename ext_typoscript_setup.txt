@@ -45,17 +45,10 @@ plugin.tx_wecflashplayer_pi1 {
   bgimage.value =
 
   videolow = TEXT
-  videolow.value =
-
-  videolowEC = TEXT
-  videolowEC.value =
-  
+  videolow.value = 
 
   videohigh = TEXT
   vidohigh.value =
-
-  videohighEC = TEXT
-  videohighEC.value =  
   
 }
 
