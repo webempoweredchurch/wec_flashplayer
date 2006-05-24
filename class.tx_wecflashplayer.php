@@ -2,7 +2,7 @@
 /***************************************************************
 * Copyright notice
 *
-* (c) 2005 Foundation for Evangelism
+* (c) 2006 Foundation for Evangelism
 * All rights reserved
 *
 * This file is part of the Web-Empowered Church (WEC)
@@ -33,8 +33,8 @@
  * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  */
 
-
-require_once(PATH_tslib."class.tslib_pibase.php");
+require_once(PATH_tslib.'class.tslib_pibase.php');
+require_once('class.tx_wecflashplayer_flashobject.php');
 
 /** 
  * Top level class for the 'wec_flashplayer' extension. Subclasses
@@ -45,9 +45,9 @@ require_once(PATH_tslib."class.tslib_pibase.php");
  * @subpackage	tx_wecflashplayer
  */
 class tx_wecflashplayer extends tslib_pibase {
-	var $prefixId = "tx_wecflashplayer";		// Same as class name
-	var $scriptRelPath = "class.tx_wecflashplayer.php";	// Path to this script relative to the extension dir.
-	var $extKey = "wec_flashplayer";	// The extension key.
+	var $prefixId = 'tx_wecflashplayer';		// Same as class name
+	var $scriptRelPath = 'class.tx_wecflashplayer.php';	// Path to this script relative to the extension dir.
+	var $extKey = 'wec_flashplayer';	// The extension key.
 	
 	/**
 	 * Main function for the class that passes handling to the pi1 or pi2 function.
@@ -56,12 +56,11 @@ class tx_wecflashplayer extends tslib_pibase {
 	 * @return	string	HTML output of extension.
 	 */
 	function main($content,$conf)	{
-		
+		/* Standard Initialization */
 		$this->conf=$conf;
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL();
 		$this->pi_initPIflexform(); // Init and get the flexform data of the plugin
-		
 		$piFlexForm = $this->cObj->data['pi_flexform']; // Copy the flexform data to a new object
 		$flashConf = array();
 
@@ -69,22 +68,24 @@ class tx_wecflashplayer extends tslib_pibase {
 		foreach($this->conf as $key => $value){
 			if ($key{strlen($key)-1} != ".") {
 				$flashConf[$key] = $this->cObj->cObjGetSingle($this->conf[$key],
-																		 	$this->conf[$key."."],
-			            											 	$key);
+															  $this->conf[$key."."],
+			            									  $key);
 			}
 		}
 
+		/* Pull special values out of flashconf and into own variables.  We don't want do pass these along as FlashVars */
 		$width = $flashConf['width'];
 		$height = $flashConf['height'];
 		$bgcolor = $flashConf['bgcolor'];
 		$flashPath = $flashConf['flashPath'];
 
-		unset($flashConf['userFunc']);  // Remove userFunc from the array b/c we do not want to pass it along to Flash
+		unset($flashConf['userFunc']); 
 		unset($flashConf['width']);
 		unset($flashConf['height']);
 		unset($flashConf['bgcolor']);
 		unset($flashConf['flashPath']);
 		
+		/* Combine FlexForm and TS values */
 		if($piFlexForm['data']) {
 			foreach($piFlexForm['data'] as $sheet => $data) {
 				foreach ($data as $lang => $value) {
@@ -104,18 +105,33 @@ class tx_wecflashplayer extends tslib_pibase {
 			}
 		}
 		
-		$flashVars = $this->implode_assoc("=", "&", $flashConf)."&".
-						 "baseurl=".t3lib_div::getIndpEnv('TYPO3_SITE_URL')."&lastloaded=true";
+		/* Initialize values for FlashObject */
+		$jsPath = t3lib_extmgm::siteRelPath($this->extKey).'res/';
+		$name = 'wec_flashplayer_'.$this->cObj->data['uid'];
+		$version = '7';
 		
+		/* Create FlashObject class */		
+		$flashObjectClassName = t3lib_div::makeInstanceClassName('tx_wecflashplayer_flashobject');
+		$flashObject = new $flashObjectClassName($flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);				
 		
-		return $this->pi_wrapInBaseClass($this->outputHTML($flashPath, $width, $height, $bgcolor, $flashVars));
+		/* Add each FlashVar to FlashObject */
+		foreach($flashConf as $var => $value) {
+			$flashObject->addVariable($var, $value);	
+		}
+		$flashObject->write($name);
+		
+		/* Create the output */
+		$html = '<div id="'.$name.'">'.$this->pi_getLL('alt_content').'</div>';
+		$javascript = $flashObject->output();	
+		
+		return $this->pi_wrapInBaseClass($html.chr(10).$javascript);
 	}
 	
 	/*
 	 * Implodes both array keys and values.  Taken from example code at php.net 
 	 *
 	 * @param	string	String placed between a key and its corresponding value.
-	 *	@param	string	String placed between one key/value pairing and the next.
+	 * @param	string	String placed between one key/value pairing and the next.
 	 * @param	array		Array to be imploded.
 	 * @param	boolean	Do not add empty array elements to imploded text.
 	 * @return	string	Imploded string from array.
@@ -129,28 +145,6 @@ class tx_wecflashplayer extends tslib_pibase {
 		}
 		
 		return implode($outer_glue,$output);
-	}
-	
-	/*
-	 * Outputs HTML to embed Flash file and parameters.
-	 *
-	 * @param	string	Relative or absolute path to the Flash SWF to be loaded.
-	 * @param	string	Width of the Flash SWF.
-	 * @param	string	Height of the Flash SWF.
-	 * @param	string	Background color of the Flash SWF.
-	 * @param	string	Parameters passed to Flash SWF via FlashVars.
-	 * @param	string	HTML to embed a Flash SWF with specified parameters.
-	 */
-	function outputHTML($flashPath, $width=760, $height=400, $bgcolor="FFFFFF", $flashVars) {
-		$output = '<embed src="'.$flashPath.'" ' .
-						'flashvars="'.$flashVars.'" ' .
-						'width="'.$width.'" ' .
-						'height="'.$height.'" ' .
-						'bgcolor="'.$bgcolor.'" ' .
-						'quality="high"  ' .
-						'pluginspage="http://www.macromedia.com/go/getflashplayer" ' .
-						'type="application/x-shockwave-flash"></embed>';
-		return $output;	
 	}
 }
 

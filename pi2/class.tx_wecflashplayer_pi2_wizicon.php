@@ -2,7 +2,7 @@
 /***************************************************************
 * Copyright notice
 *
-* (c) 2005 Foundation for Evangelism (info@evangelize.org)
+* (c) 2006 Foundation for Evangelism (info@evangelize.org)
 * All rights reserved
 *
 * This file is part of the Web-Empowered Church (WEC) ministry of the
@@ -68,7 +68,8 @@ class tx_wecflashplayer_pi2_wizicon {
 	 * @return	array		The LOCAL_LANG array
 	 */
 	function includeLocalLang()	{
-		include(t3lib_extMgm::extPath('wec_flashplayer').'locallang.php');
+		$llFile = t3lib_extMgm::extPath('wec_flashplayer').'locallang.xml';
+		$LOCAL_LANG = t3lib_div::readLLXMLfile($llFile, $GLOBALS['LANG']->lang);
 		return $LOCAL_LANG;
 	}
 }

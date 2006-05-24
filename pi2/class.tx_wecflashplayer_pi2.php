@@ -2,7 +2,7 @@
 /***************************************************************
 * Copyright notice
 *
-* (c) 2005 Foundation for Evangelism
+* (c) 2006 Foundation for Evangelism
 * All rights reserved
 *
 * This file is part of the Web-Empowered Church (WEC)
@@ -28,15 +28,15 @@
 ***************************************************************/
 
 /** 
- * Audio presentation class for the 'wec_flashplayer' extension.
+ * Audio player class for the 'wec_flashplayer' extension.
  * 
  * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  */
 
-require_once(PATH_site.'typo3conf/ext/wec_flashplayer/class.tx_wecflashplayer.php');
+require_once(t3lib_extMgm::extPath('wec_flashplayer').'class.tx_wecflashplayer.php');
 
 /** 
- * Audio presentation class for the 'wec_flashplayer' extension.
+ * Audio player class for the 'wec_flashplayer' extension.
  * Class is a simple shell that extends parent class and calls all functions from it.
  *
  * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
@@ -45,8 +45,7 @@ require_once(PATH_site.'typo3conf/ext/wec_flashplayer/class.tx_wecflashplayer.ph
  */
 class tx_wecflashplayer_pi2 extends tx_wecflashplayer {
 	var $prefixId = "tx_wecflashplayer_pi2";		// Same as class name
-	var $scriptRelPath = "pi2/class.tx_wecflashplayer_pi2.php";	// Path to this script relative to the extension dir.
-	
+	var $scriptRelPath = "pi2/class.tx_wecflashplayer_pi2.php";	// Path to this script relative to the extension dir.	
 }
 
 

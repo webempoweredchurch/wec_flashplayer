@@ -2,7 +2,7 @@
 /***************************************************************
 * Copyright notice
 *
-* (c) 2005 Foundation for Evangelism (info@evangelize.org)
+* (c) 2006 Foundation for Evangelism (info@evangelize.org)
 * All rights reserved
 *
 * This file is part of the Web-Empowered Church (WEC) ministry of the
@@ -32,7 +32,7 @@
  * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
  */
 
-require_once(PATH_site.'typo3conf/ext/wec_flashplayer/class.tx_wecflashplayer.php');
+require_once(t3lib_extMgm::extPath('wec_flashplayer').'class.tx_wecflashplayer.php');
 
 /** 
  * Video player class for the 'wec_flashplayer' extension.
