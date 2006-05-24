@@ -6,10 +6,6 @@
 		<csh_table></csh_table>
 		<fileId>EXT:wec_flashplayer/locallang.xml</fileId>
 		<labelContext type="array">
-			<label index="pi1_title"></label>
-			<label index="pi1_plus_wiz_description"></label>
-			<label index="pi2_title"></label>
-			<label index="pi2_plus_wiz_description"></label>
 		</labelContext>
 	</meta>
 	<data type="array">
@@ -26,4 +22,20 @@
 			<label index="pi2_plus_wiz_description">Flash-based mediaspeler voor MP3 audio.</label>
 		</languageKey>
 	</data>
+	<orig_hash type="array">
+		<languageKey index="nl" type="array">
+			<label index="pi1_title" type="integer">60662580</label>
+			<label index="pi1_plus_wiz_description" type="integer">91262576</label>
+			<label index="pi2_title" type="integer">188883990</label>
+			<label index="pi2_plus_wiz_description" type="integer">145076626</label>
+		</languageKey>
+	</orig_hash>
+	<orig_text type="array">
+		<languageKey index="nl" type="array">
+			<label index="pi1_title">Flash Player - Video</label>
+			<label index="pi1_plus_wiz_description">Flash-based media player for FLV video.</label>
+			<label index="pi2_title">Flash Player - Audio</label>
+			<label index="pi2_plus_wiz_description">Flash-based media player for MP3 video.</label>
+		</languageKey>
+	</orig_text>
 </T3locallang>
