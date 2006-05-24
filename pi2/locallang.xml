@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>language labels for wec_flashplayer</description>
+		<type>module</type>
+		<csh_table></csh_table>
+		<fileId>EXT:wec_flashplayer/pi2/locallang.xml</fileId>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="alt_content">You do not have the Flash plugin installed, or your browser does not support Javascript.  Both are required to view this Flash movie.</label>
+		</languageKey>
+	</data>
+</T3locallang>
