@@ -1,76 +1,117 @@
+# Configuration for Flash Video Player
 plugin.tx_wecflashplayer_pi1 {
-  flashPath = TEXT
-  flashPath.value = {$plugin.tx_wecflashplayer_pi1.flashPath}
-  
-  width = TEXT
-  width.value = {$plugin.tx_wecflashplayer_pi1.width}
-  
-  height = TEXT
-  height.value = {$plugin.tx_wecflashplayer_pi1.height}
-  
-  textcolor = TEXT
-  textcolor.value = {$plugin.tx_wecflashplayer_pi1.textcolor}
-  
-  bgcolor = TEXT
-  bgcolor.value = {$plugin.tx_wecflashplayer_pi1.bgcolor}
+	
+	# @description	Path to Flash movie to be loaded.
+	# @see			constants
+	flashPath = TEXT
+	flashPath.value = {$plugin.tx_wecflashplayer_pi1.flashPath}
+	
+	# @description	Width of the Flash movie.
+	# @see			constants
+	width = TEXT
+	width.value = {$plugin.tx_wecflashplayer_pi1.width}
+	
+	# @description	Height of the Flash movie.
+	# @see			constants
+	height = TEXT
+	height.value = {$plugin.tx_wecflashplayer_pi1.height}
+	
+	# @description	Text color.
+	# @see			constants
+	textcolor = TEXT
+	textcolor.value = {$plugin.tx_wecflashplayer_pi1.textcolor}
+	
+	# @description	Background color for Flash movie.
+	# @see			constants
+	bgcolor = TEXT
+	bgcolor.value = {$plugin.tx_wecflashplayer_pi1.bgcolor}
+	
+	# @description	Title of the video.
+	# @see			flexform
+	classtitle = TEXT
+	classtitle.value =
+	
+	# @description	Welcome or instructional text.
+	# @see			flexform
+	intromessage = TEXT
+	intromessage.value =
+	
+	# @description	Label for low bandwidth version.
+	# @see			constants
+	radioLabelLow = TEXT
+	radioLabelLow.value = {$plugin.tx_wecflashplayer_pi1.radioLabelLow}
+	
+	# @description	Label for high bandwidth version.
+	# @see			constants
+	radioLabelHigh = TEXT
+	radioLabelHigh.value = {$plugin.tx_wecflashplayer_pi1.radioLabelHigh}
+	
+	# @description	Path to load video files from.
+	videobase = TEXT
+	videobase.value = uploads/tx_wecflashplayer/
+	
+	# @description	Path to load bandwidth detection from.
+	bwbase = TEXT
+	bwbase.value = typo3conf/ext/wec_flashplayer/res/
+	
+	# @description	Path to load background image from.
+	bgbase = TEXT
+	bgbase.value = uploads/tx_wecflashplayer/
+	
+	# @description	Image to use for bandwidth checking
+	bwimage = TEXT
+	bwimage.value = 100k.jpg
+	
+	# @description	Background image for Flash movie.
+	# @see			FlexForm
+	bgimage = TEXT
+	bgimage.value =
 
-  classtitle = TEXT
-  classtitle.value =
+	# @description	Filename of low bandwidth video.
+	# @see			FlexForm
+	videolow = TEXT
+	videolow.value = 
 
-  intromessage = TEXT
-  intromessage.value =
-  
-  bwimage = TEXT
-  bwimage.value = {$plugin.tx_wecflashplayer_pi1.bwimage}
-  
-  radioLabelLow = TEXT
-  radioLabelLow.value = {$plugin.tx_wecflashplayer_pi1.radioLabelLow}
-
-  radioLabelHigh = TEXT
-  radioLabelHigh.value = {$plugin.tx_wecflashplayer_pi1.radioLabelHigh}
-  
-  videobase = TEXT
-  videobase.value = uploads/tx_wecflashplayer/
-  
-  bwbase = TEXT
-  bwbase.value = typo3conf/ext/wec_flashplayer/res/
-  
-  bgbase = TEXT
-  bgbase.value = uploads/tx_wecflashplayer/
-
-  bwimage = TEXT
-  bwimage.value = 100k.jpg
-
-  bgimage = TEXT
-  bgimage.value =
-
-  videolow = TEXT
-  videolow.value = 
-
-  videohigh = TEXT
-  vidohigh.value =
-  
+	# @description	Filename for high bandwidth video.
+	# @see			FlexForm
+	videohigh = TEXT
+	videohigh.value =
 }
 
+
+# Configuration for Flash-based MP3 Player
 plugin.tx_wecflashplayer_pi2 {
-  flashPath = TEXT
-  flashPath.value = {$plugin.tx_wecflashplayer_pi2.flashPath}
-  
-  width = TEXT
-  width.value = {$plugin.tx_wecflashplayer_pi2.width}
-  
-  height = TEXT
-  height.value = {$plugin.tx_wecflashplayer_pi2.height}
-  
-  bgcolor = TEXT
-  bgcolor.value = {$plugin.tx_wecflashplayer_pi2.bgcolor}
-  
-  audiobase = TEXT
-  audiobase.value = uploads/tx_wecflashplayer/
-
-  audiofile = TEXT
-  audiofile.value =
-
-  autoplay = TEXT
-  autoplay.value =
+	# @description	Path to Flash movie to be loaded.
+	# @see			constants
+	flashPath = TEXT
+	flashPath.value = {$plugin.tx_wecflashplayer_pi2.flashPath}
+	
+	# @description	Width of the Flash movie.
+	# @see			constants
+	width = TEXT
+	width.value = {$plugin.tx_wecflashplayer_pi2.width}
+	
+	# @description	Height of the Flash movie.
+	# @see			constants
+	height = TEXT
+	height.value = {$plugin.tx_wecflashplayer_pi2.height}
+	
+	# @description	Background color for Flash movie.
+	# @see			constants
+	bgcolor = TEXT
+	bgcolor.value = {$plugin.tx_wecflashplayer_pi2.bgcolor}
+	
+	# @description	Path to audio files.
+	audiobase = TEXT
+	audiobase.value = uploads/tx_wecflashplayer/
+	
+	# @description	Filename of MP3 file.
+	# @see			FlexForm
+	audiofile = TEXT
+	audiofile.value =
+	
+	# @description	Enable automatic playback.
+	# @see			FlexForm
+	autoplay = TEXT
+	autoplay.value =
 }
