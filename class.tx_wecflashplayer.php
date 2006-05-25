@@ -105,6 +105,9 @@ class tx_wecflashplayer extends tslib_pibase {
 			}
 		}
 		
+		$flashConf['baseurl'] = t3lib_div::getIndpEnv('TYPO3_SITE_URL');
+		$flashConf['lastloaded'] = "true";
+		
 		/* Initialize values for FlashObject */
 		$jsPath = t3lib_extmgm::siteRelPath($this->extKey).'res/';
 		$name = 'wec_flashplayer_'.$this->cObj->data['uid'];
