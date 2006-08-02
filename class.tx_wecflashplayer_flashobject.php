@@ -64,7 +64,7 @@ class tx_wecflashplayer_flashobject {
 		$this->flashObjectVariables =array();
 		$this->flashObjectPath = $flashObjectPath;
 		
-		$this->flashObject = 'var fo = new FlashObject("'.$flashMoviePath.'", "flash", "'.$width.'", "'.$height.'", "8", "'.$bgcolor.'");';
+		$this->flashObject = "var fo = new FlashObject('".$flashMoviePath."', 'flash', '".$width."', '".$height."', '8', '".$bgcolor."');";
 	}
 	
 	/*
@@ -74,7 +74,7 @@ class tx_wecflashplayer_flashobject {
 	 * @return	null
 	 */
 	function addVariable($var, $value) {
-		$this->flashObjectVariables[] = 'fo.addVariable("'.$var.'", "'.$value.'");';		
+		$this->flashObjectVariables[] = "fo.addVariable('".t3lib_div::slashJS($var)."', '".t3lib_div::slashJS($value)."');";		
 	}
 	
 	/*
@@ -83,7 +83,7 @@ class tx_wecflashplayer_flashobject {
 	 * @return	null
 	 */
 	function write($id) {
-		$this->flashObjectWrite = 'fo.write("'.$id.'");';
+		$this->flashObjectWrite = "fo.write('".$id."');";
 	}
 	
 	
