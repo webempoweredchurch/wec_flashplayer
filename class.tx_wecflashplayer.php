@@ -34,7 +34,7 @@
  */
 
 require_once(PATH_tslib.'class.tslib_pibase.php');
-require_once('class.tx_wecflashplayer_flashobject.php');
+require_once(t3lib_extMgm::extPath('wec_flashplayer').'class.tx_wecflashplayer_flashobject.php');
 
 /** 
  * Top level class for the 'wec_flashplayer' extension. Subclasses
