@@ -93,7 +93,7 @@ class tx_wecflashplayer_flashobject {
 	 */
 	function output() {
 		
-		$GLOBALS['TSFE']->additionalHeaderData[] = '<script type="text/javascript" src="'.$this->flashObjectPath.'swfobject.js"></script>';		
+		$GLOBALS['TSFE']->additionalHeaderData['tx_wecflashplayer_flashobject'] = '<script type="text/javascript" src="'.$this->flashObjectPath.'swfobject.js"></script>';		
 				
 		$output .= $this->flashObject.chr(10);
 		$output .= implode(chr(10), $this->flashObjectVariables).chr(10);
