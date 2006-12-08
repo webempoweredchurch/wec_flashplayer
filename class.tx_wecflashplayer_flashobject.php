@@ -64,7 +64,7 @@ class tx_wecflashplayer_flashobject {
 		$this->flashObjectVariables =array();
 		$this->flashObjectPath = $flashObjectPath;
 		
-		$this->flashObject = "var fo = new FlashObject('".$flashMoviePath."', 'flash', '".$width."', '".$height."', '8', '".$bgcolor."');";
+		$this->flashObject = "var fo = new FlashObject('".$flashMoviePath."', 'flash', '".$width."', '".$height."', '8', '".$bgColor."');";
 	}
 	
 	/*
