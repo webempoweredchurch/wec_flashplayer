@@ -79,7 +79,7 @@ plugin.tx_wecflashplayer_pi1 {
 	
 	# @description	wmode parameter for flash.  Can be opaque, transparent, or window.
 	wmode = TEXT
-	wmode.value = opaqe
+	wmode.value = opaque
 }
 
 
