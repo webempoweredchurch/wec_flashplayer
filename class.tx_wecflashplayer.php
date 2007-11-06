@@ -63,7 +63,7 @@ class tx_wecflashplayer extends tslib_pibase {
 		$this->pi_initPIflexform(); // Init and get the flexform data of the plugin
 		$piFlexForm = $this->cObj->data['pi_flexform']; // Copy the flexform data to a new object
 		$flashConf = array();
-
+		
 		/* Read all conf variables from Typoscript first */
 		foreach($this->conf as $key => $value){
 			if ($key{strlen($key)-1} != ".") {
@@ -79,11 +79,23 @@ class tx_wecflashplayer extends tslib_pibase {
 		$bgcolor = $flashConf['bgcolor'];
 		$flashPath = $flashConf['flashPath'];
 
+		/* Initialize values for FlashObject */
+		$jsPath = t3lib_extmgm::siteRelPath($this->extKey).'res/';
+		$name = 'wec_flashplayer_'.$this->cObj->data['uid'];
+		$version = '7';
+
+		/* Create FlashObject class */		
+		$flashObjectClassName = t3lib_div::makeInstanceClassName('tx_wecflashplayer_flashobject');
+		$flashObject = new $flashObjectClassName($flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);				
+
 		unset($flashConf['userFunc']); 
 		unset($flashConf['width']);
 		unset($flashConf['height']);
 		unset($flashConf['bgcolor']);
 		unset($flashConf['flashPath']);
+		
+		$flashObject->addParameter('wmode', $flashConf['wmode']);
+		unset($flashConf['wmode']);
 		
 		/* Combine FlexForm and TS values */
 		if($piFlexForm['data']) {
@@ -109,15 +121,6 @@ class tx_wecflashplayer extends tslib_pibase {
 			$flashConf['baseurl'] = t3lib_div::getIndpEnv('TYPO3_SITE_URL');
 		}
 		$flashConf['lastloaded'] = "true";
-		
-		/* Initialize values for FlashObject */
-		$jsPath = t3lib_extmgm::siteRelPath($this->extKey).'res/';
-		$name = 'wec_flashplayer_'.$this->cObj->data['uid'];
-		$version = '7';
-		
-		/* Create FlashObject class */		
-		$flashObjectClassName = t3lib_div::makeInstanceClassName('tx_wecflashplayer_flashobject');
-		$flashObject = new $flashObjectClassName($flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);				
 		
 		/* Add each FlashVar to FlashObject */
 		foreach($flashConf as $var => $value) {
