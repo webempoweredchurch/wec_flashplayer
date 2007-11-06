@@ -76,6 +76,10 @@ plugin.tx_wecflashplayer_pi1 {
 	# @see			FlexForm
 	videohigh = TEXT
 	videohigh.value =
+	
+	# @description	wmode parameter for flash.  Can be opaque, transparent, or window.
+	wmode = TEXT
+	wmode.value = opaqe
 }
 
 
@@ -114,4 +118,8 @@ plugin.tx_wecflashplayer_pi2 {
 	# @see			FlexForm
 	autoplay = TEXT
 	autoplay.value =
+	
+	# @description	wmode parameter for flash.  Can be opaque, transparent, or window.
+	wmode = TEXT
+	wmode.value = opaque
 }
