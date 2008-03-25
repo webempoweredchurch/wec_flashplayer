@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>CSH labels for the WEC Flash Player - Video Frontend Plugin</description>
+		<type>CSH</type>
+		<csh_table></csh_table>
+		<fileId>EXT:wec_flashplayer/csh/locallang_csh_pi1.xml</fileId>
+		<labelContext type="array"></labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="classtitle.description">Optional title of the class or video that will appear above the video.</label>
+			<label index="intromessage.description">Optional text that will appear before the video loads.</label>
+			<label index="bgimage.description">Optional background image that will be used behind the video.</label>
+			<label index="videolow.description">Low bandwidth verstion of the video in FLV format.</label>
+			<label index="videohigh.description">High bandwidth version on the video in FLV format.</label>
+		</languageKey>
+	</data>
+</T3locallang>

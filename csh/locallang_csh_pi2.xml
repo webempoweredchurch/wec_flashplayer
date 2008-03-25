@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>CSH labels for the WEC Flash Player - Audio Frontend Plugin</description>
+		<type>CSH</type>
+		<csh_table></csh_table>
+		<fileId>EXT:wec_flashplayer/csh/locallang_csh_pi2.xml</fileId>
+		<labelContext type="array"></labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="audiofile.description">MP3 file to playback in the Flash Audio Player.</label>
+			<label index="autoplay.description">Automatically begin audio playback when the page loads.</label>
+		</languageKey>
+	</data>
+</T3locallang>
