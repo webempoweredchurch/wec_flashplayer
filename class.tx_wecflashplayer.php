@@ -86,7 +86,7 @@ class tx_wecflashplayer extends tslib_pibase {
 
 		/* Create FlashObject class */		
 		$flashObjectClassName = t3lib_div::makeInstanceClassName('tx_wecflashplayer_flashobject');
-		$flashObject = new $flashObjectClassName($flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);				
+		$flashObject = new $flashObjectClassName($flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);
 
 		unset($flashConf['userFunc']); 
 		unset($flashConf['width']);
@@ -126,7 +126,6 @@ class tx_wecflashplayer extends tslib_pibase {
 		foreach($flashConf as $var => $value) {
 			$flashObject->addVariable($var, $value);	
 		}
-		$flashObject->write($name);
 		
 		/* Create the output */
 		$html = '<div id="'.$name.'">'.$this->pi_getLL('alt_content').'</div>';
