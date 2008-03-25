@@ -97,20 +97,24 @@ class tx_wecflashplayer_flashobject {
 	 * Generates the Javascript output for FlashObject.
 	 * @return	string	Javascript output of FlashObject.
 	 */
-	function output() {
+	function outputHeader() {
 		
 		$javascript = array();
 		
 		$javascript[] = "var flashvars = {";
+		$variables = array();
 		foreach($this->flashObjectVariables as $key => $value) {
-			$javascript[] = "	".addSlashes($key).": escape('".addSlashes($value)."'),";
+			$variables[] = "	".addSlashes($key).": escape('".addSlashes($value)."')";
 		}
+		$javascript[] = implode(','.chr(10), $variables);
 		$javascript[] = '}';
 		
 		$javascript[] = "var params = {";
+		$parameters = array();
 		foreach($this->flashObjectParameters as $key => $value) {
-			$javascript[] = "	".addSlashes($key).": escape('".addSlashes($value)."'),";
+			$parameters[] = "	".addSlashes($key).": '".addSlashes($value)."'";
 		}
+		$javascript[] = implode(','.chr(10), $parameters);
 		$javascript[] = '}';
 		$javascript[] = "swfobject.embedSWF('".$this->flashMoviePath."', '".$this->name."', '".$this->width."', '".$this->height."', '8', '', flashvars, params);";
 

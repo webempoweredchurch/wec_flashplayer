@@ -78,58 +78,73 @@ class tx_wecflashplayer extends tslib_pibase {
 		$height = $flashConf['height'];
 		$bgcolor = $flashConf['bgcolor'];
 		$flashPath = $flashConf['flashPath'];
-
-		/* Initialize values for FlashObject */
-		$jsPath = t3lib_extmgm::siteRelPath($this->extKey).'res/';
-		$name = 'wec_flashplayer_'.$this->cObj->data['uid'];
-		$version = '7';
-
-		/* Create FlashObject class */		
-		$flashObjectClassName = t3lib_div::makeInstanceClassName('tx_wecflashplayer_flashobject');
-		$flashObject = new $flashObjectClassName($flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);
-
-		unset($flashConf['userFunc']); 
-		unset($flashConf['width']);
-		unset($flashConf['height']);
-		unset($flashConf['bgcolor']);
-		unset($flashConf['flashPath']);
 		
-		$flashObject->addParameter('wmode', $flashConf['wmode']);
-		unset($flashConf['wmode']);
+		if($flashPath && (count($flashConf) > 0)) {
+			/* Initialize values for FlashObject */
+			$jsPath = t3lib_extmgm::siteRelPath($this->extKey).'res/';
+			$name = 'wec_flashplayer_'.$this->cObj->data['uid'].'_'.rand();
+			$version = '7';
+
+			/* Create FlashObject class */		
+			$flashObjectClassName = t3lib_div::makeInstanceClassName('tx_wecflashplayer_flashobject');
+			$flashObject = new $flashObjectClassName($flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);
+
+			unset($flashConf['userFunc']); 
+			unset($flashConf['width']);
+			unset($flashConf['height']);
+			unset($flashConf['bgcolor']);
+			unset($flashConf['flashPath']);
 		
-		/* Combine FlexForm and TS values */
-		if($piFlexForm['data']) {
-			foreach($piFlexForm['data'] as $sheet => $data) {
-				foreach ($data as $lang => $value) {
-					foreach ($value as $key => $val) {
-						$val = $this->pi_getFFvalue($piFlexForm, $key, $sheet);
-						/* If value exists in Flexform, overwrite existing Typoscript value or create new array entry */
-						if ($val != null) {
-							$flashConf[$key] = $val;
+			$flashObject->addParameter('wmode', $flashConf['wmode']);
+			unset($flashConf['wmode']);
+		
+			/* Combine FlexForm and TS values */
+			if($piFlexForm['data']) {
+				foreach($piFlexForm['data'] as $sheet => $data) {
+					foreach ($data as $lang => $value) {
+						foreach ($value as $key => $val) {
+							$val = $this->pi_getFFvalue($piFlexForm, $key, $sheet);
+							/* If value exists in Flexform, overwrite existing Typoscript value or create new array entry */
+							if ($val != null) {
+								$flashConf[$key] = $val;
 							
-							/* If bandwidth image comes from Flexform, set bwbase to uploads folder */
-							if ($key == "bwbase") {
-								$flashConf['bwbase'] = "uploads/tx_wecflashplayer/";
+								/* If bandwidth image comes from Flexform, set bwbase to uploads folder */
+								if ($key == "bwbase") {
+									$flashConf['bwbase'] = "uploads/tx_wecflashplayer/";
+								}
 							}
 						}
 					}
 				}
 			}
-		}
 		
-		if(!$flashConf['baseurl']) {
-			$flashConf['baseurl'] = t3lib_div::getIndpEnv('TYPO3_SITE_URL');
-		}
-		$flashConf['lastloaded'] = "true";
+			if(!$flashConf['baseurl']) {
+				$flashConf['baseurl'] = t3lib_div::getIndpEnv('TYPO3_SITE_URL');
+			}
+			$flashConf['lastloaded'] = "true";
 		
-		/* Add each FlashVar to FlashObject */
-		foreach($flashConf as $var => $value) {
-			$flashObject->addVariable($var, $value);	
-		}
+			/* Add each FlashVar to FlashObject */
+			foreach($flashConf as $var => $value) {
+				$flashObject->addVariable($var, $value);	
+			}
 		
-		/* Create the output */
-		$html = '<div id="'.$name.'">'.$this->pi_getLL('alt_content').'</div>';
-		$javascript = $flashObject->output();	
+			/* Create the output */
+			$flashObject->outputHeader();
+			$html = '<div id="'.$name.'">'.$this->pi_getLL('alt_content').'</div>';
+		} else {
+			$GLOBALS['TSFE']->additionalHeaderData['tx_wecflashplayer_flashobject-error'] = '
+				<style type="text/css">
+					.error {
+						border:solid 1px #CC0000; 
+						background:#F7CBCA;
+						color:#CC0000;
+						font-weight:bold;
+						padding:4px;
+						text-align:center;	
+					}
+				</style>';
+			$html = '<div class="error">'.$this->pi_getLL('configuration_error').'</div>';
+		}
 		
 		return $this->pi_wrapInBaseClass($html.chr(10).$javascript);
 	}
