@@ -27,7 +27,7 @@
 * This copyright notice MUST APPEAR in all copies of the file!
 ***************************************************************/
 
-/** 
+/**
  * Top level class for the 'wec_flashplayer' extension.
  *
  * @author		Web-Empowered Church Team <flashplayer@webempoweredchurch.org>
@@ -36,7 +36,7 @@
 require_once(PATH_tslib.'class.tslib_pibase.php');
 require_once(t3lib_extMgm::extPath('wec_flashplayer').'class.tx_wecflashplayer_flashobject.php');
 
-/** 
+/**
  * Top level class for the 'wec_flashplayer' extension. Subclasses
  * in pi1 and pi2 are shells that call all functions in parent class.
  *
@@ -48,7 +48,7 @@ class tx_wecflashplayer extends tslib_pibase {
 	var $prefixId = 'tx_wecflashplayer';		// Same as class name
 	var $scriptRelPath = 'class.tx_wecflashplayer.php';	// Path to this script relative to the extension dir.
 	var $extKey = 'wec_flashplayer';	// The extension key.
-	
+
 	/**
 	 * Main function for the class that passes handling to the pi1 or pi2 function.
 	 * @param	string	Content coming into the extension.
@@ -63,7 +63,7 @@ class tx_wecflashplayer extends tslib_pibase {
 		$this->pi_initPIflexform(); // Init and get the flexform data of the plugin
 		$piFlexForm = $this->cObj->data['pi_flexform']; // Copy the flexform data to a new object
 		$flashConf = array();
-		
+
 		/* Read all conf variables from Typoscript first */
 		foreach($this->conf as $key => $value){
 			if ($key{strlen($key)-1} != ".") {
@@ -78,26 +78,24 @@ class tx_wecflashplayer extends tslib_pibase {
 		$height = $flashConf['height'];
 		$bgcolor = $flashConf['bgcolor'];
 		$flashPath = $flashConf['flashPath'];
-		
+
 		if($flashPath && (count($flashConf) > 0)) {
 			/* Initialize values for FlashObject */
 			$jsPath = t3lib_extmgm::siteRelPath($this->extKey).'res/';
 			$name = 'wec_flashplayer_'.$this->cObj->data['uid'].'_'.rand();
 			$version = '7';
 
-			/* Create FlashObject class */		
-			$flashObjectClassName = t3lib_div::makeInstanceClassName('tx_wecflashplayer_flashobject');
-			$flashObject = new $flashObjectClassName($flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);
+			$flashObject = t3lib_div::makeInstance('tx_wecflashplayer_flashobject', $flashPath, $name, $width, $height, $version, $bgcolor, $jsPath);
 
-			unset($flashConf['userFunc']); 
+			unset($flashConf['userFunc']);
 			unset($flashConf['width']);
 			unset($flashConf['height']);
 			unset($flashConf['bgcolor']);
 			unset($flashConf['flashPath']);
-		
+
 			$flashObject->addParameter('wmode', $flashConf['wmode']);
 			unset($flashConf['wmode']);
-		
+
 			/* Combine FlexForm and TS values */
 			if($piFlexForm['data']) {
 				foreach($piFlexForm['data'] as $sheet => $data) {
@@ -107,7 +105,7 @@ class tx_wecflashplayer extends tslib_pibase {
 							/* If value exists in Flexform, overwrite existing Typoscript value or create new array entry */
 							if ($val != null) {
 								$flashConf[$key] = $val;
-							
+
 								/* If bandwidth image comes from Flexform, set bwbase to uploads folder */
 								if ($key == "bwbase") {
 									$flashConf['bwbase'] = "uploads/tx_wecflashplayer/";
@@ -117,17 +115,17 @@ class tx_wecflashplayer extends tslib_pibase {
 					}
 				}
 			}
-		
+
 			if(!$flashConf['baseurl']) {
 				$flashConf['baseurl'] = t3lib_div::getIndpEnv('TYPO3_SITE_URL');
 			}
 			$flashConf['lastloaded'] = "true";
-		
+
 			/* Add each FlashVar to FlashObject */
 			foreach($flashConf as $var => $value) {
-				$flashObject->addVariable($var, $value);	
+				$flashObject->addVariable($var, $value);
 			}
-		
+
 			/* Create the output */
 			$flashObject->outputHeader();
 			$html = '<div id="'.$name.'">'.$this->pi_getLL('alt_content').'</div>';
@@ -135,22 +133,22 @@ class tx_wecflashplayer extends tslib_pibase {
 			$GLOBALS['TSFE']->additionalHeaderData['tx_wecflashplayer_flashobject-error'] = '
 				<style type="text/css">
 					.error {
-						border:solid 1px #CC0000; 
+						border:solid 1px #CC0000;
 						background:#F7CBCA;
 						color:#CC0000;
 						font-weight:bold;
 						padding:4px;
-						text-align:center;	
+						text-align:center;
 					}
 				</style>';
 			$html = '<div class="error">'.$this->pi_getLL('configuration_error').'</div>';
 		}
-		
+
 		return $this->pi_wrapInBaseClass($html.chr(10).$javascript);
 	}
-	
+
 	/*
-	 * Implodes both array keys and values.  Taken from example code at php.net 
+	 * Implodes both array keys and values.  Taken from example code at php.net
 	 *
 	 * @param	string	String placed between a key and its corresponding value.
 	 * @param	string	String placed between one key/value pairing and the next.
@@ -165,7 +163,7 @@ class tx_wecflashplayer extends tslib_pibase {
 				$output[] = $key.$inner_glue.$item;
 			}
 		}
-		
+
 		return implode($outer_glue,$output);
 	}
 }
