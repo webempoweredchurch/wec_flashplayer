@@ -104,7 +104,8 @@ class tx_wecflashplayer extends tslib_pibase {
 						foreach ($value as $key => $val) {
 							$val = $this->pi_getFFvalue($piFlexForm, $key, $sheet);
 							/* If value exists in Flexform, overwrite existing Typoscript value or create new array entry */
-							if ($val != null) {
+							/* @fixme If a content element is reused, the Flexform may include old values that should not be passed through as flashConf */
+							if (($val != null) && (strpos($key, '.') === FALSE)) {
 								$flashConf[$key] = $val;
 
 								/* If bandwidth image comes from Flexform, set bwbase to uploads folder */
